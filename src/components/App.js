@@ -1,7 +1,7 @@
 import React from 'react';
 import TweetWall from './TweetWall';
 
-import { getTweets }from '../lib/mockAPI';
+import { getTweets } from '../lib/mockAPI';
 
 class App extends React.Component {
 
@@ -13,9 +13,23 @@ class App extends React.Component {
     };
   }
 
-  // TODO: componentWillMount()
-  // TODO: componentDidMount()
-  // TODO: componentWillUnmount()
+  componentWillUnmount() {
+    this.cleanUpInterval()
+  }
+
+  //Set up timer/interval to display new tweets
+  //Start interval when component is mounted and clean it up when unmounted.
+  componentDidMount() {
+    this.startInterval()
+  }
+  
+  
+  //Call method to fetch external data in componentWillMount
+  //Now deprecated in React 16.3
+  //***Better place to fetch data is componentDidMount***
+  componentWillMount() {
+    this.fetchTweets()
+  }
 
   startInterval = () => {
     this.interval = setInterval(this.fetchTweets, 2000);

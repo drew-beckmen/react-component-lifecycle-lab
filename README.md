@@ -1,5 +1,7 @@
 # React Component Lifecycle Lab
 
+> Note: Many of the lifecycle methods/hooks used in this exercise are now deprecated. For example, `componentWillMount()` should no longer be used in new code according to the React official documentation. Asynchronous fetch requests should be performed in `componentDidMount()` and initial state should be set in the `constructor` when possible. `componentWillReceiveProps(nextProps)` is also considered unsafe and will only be supported through React 17.
+
 ## Objectives
 
 1. Practice rendering React components, making use of the different parts of
